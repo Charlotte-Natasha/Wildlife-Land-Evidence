@@ -12,7 +12,7 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
 # --- CONFIGURATION (Must match your indexing script) ---
-CHROMA_DB_PATH = "wildlife_vector_db"
+CHROMA_DB_PATH = "wildlife_db"
 COLLECTION_NAME = "kenya_wildlife_corpus"
 
 EMBEDDING_MODEL = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")

@@ -6,7 +6,7 @@ __pycache__
 .env 
 
 # --- RAG DATA FILES (CRITICAL!) ---
-wildlife_vector_db
+wildlife_db
 
 # --- LARGE MODEL FILES ---
 .huggingface

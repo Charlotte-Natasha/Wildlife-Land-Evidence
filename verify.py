@@ -3,7 +3,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
 # --- CONFIGURATION (Must match your indexing script) ---
-CHROMA_DB_PATH = "wildlife_vector_db"
+CHROMA_DB_PATH = "wildlife_db"
 COLLECTION_NAME = "kenya_wildlife_corpus"
 
 # The embedding model MUST be the SAME one used during indexing

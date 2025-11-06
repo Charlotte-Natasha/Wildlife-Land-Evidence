@@ -6,13 +6,12 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 # --- CONFIGURATION ---
 DATA_PATH = "docs" # Path to your folder containing the documents
-CHROMA_DB_PATH = "wildlife_vector_db" # Folder where ChromaDB will store the data
+CHROMA_DB_PATH = "wildlife_db" # Folder where ChromaDB will store the data
 COLLECTION_NAME = "kenya_wildlife_corpus"
 CHUNK_SIZE = 1000 # Max characters per text chunk
 CHUNK_OVERLAP = 200 # Overlap ensures context isn't lost at the boundaries of chunks
 
 # --- EMBEDDING MODEL ---
-# Using a good, open-source model that runs locally:
 # This model will convert your text chunks into numerical vectors.
 # Note: Requires 'sentence-transformers' package.
 EMBEDDING_MODEL = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
