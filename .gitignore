@@ -1,0 +1,13 @@
+# --- DEPENDENCY AND ENVIRONMENT FILES ---
+venv
+__pycache__
+*.pyc
+
+.env 
+
+# --- RAG DATA FILES (CRITICAL!) ---
+wildlife_vector_db
+
+# --- LARGE MODEL FILES ---
+.huggingface
+.cache
