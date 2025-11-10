@@ -24,7 +24,7 @@ llm = ChatGoogleGenerativeAI(
     google_api_key=os.getenv("GOOGLE_API_KEY")  
 )
 
-# --- 1. DEFINE THE RAG PROMPT TEMPLATE ---
+# --- 1. DEFINES THE RAG PROMPT TEMPLATE ---
 # This template defines the agent's role and the required output structure.
 RAG_PROMPT_TEMPLATE = """
 **ROLE:** You are the Kenyan Wildlife Corridor Defense Agent, a highly specialized expert in Kenyan land law, ecological data, and historical land tenure.
@@ -54,32 +54,32 @@ def create_retriever():
             f"Vector database not found at '{CHROMA_DB_PATH}'. Please ensure you ran the indexing script first!"
         )
 
-    # 1. Load the existing Chroma database from disk
+    # 1. Loads the existing Chroma database from disk
     db = Chroma(
         persist_directory=CHROMA_DB_PATH,
         embedding_function=EMBEDDING_MODEL,
         collection_name=COLLECTION_NAME
     )
     
-    # 2. Convert the database into a retriever object for use in the RAG chain
+    # 2. Converts the database into a retriever object for use in the RAG chain
     return db.as_retriever(search_kwargs={"k": 4})
 
 def run_rag_chain(user_query: str):
     """Executes the complete Retrieval-Augmented Generation pipeline."""
     retriever = create_retriever()
     
-    # Create the prompt from the template
+    # Creates the prompt from the template
     rag_prompt = ChatPromptTemplate.from_template(RAG_PROMPT_TEMPLATE)
 
-    # Define the RAG Chain using LangChain Expression Language (LCEL)
+    # Defines the RAG Chain using LangChain Expression Language (LCEL)
     rag_chain = (
-        # 1. RETRIEVAL: Retrieve context chunks
+        # 1. RETRIEVAL: Retrieves context chunks
         {"context": retriever, "query": RunnablePassthrough()}
-        # 2. PROMPT: Format the context and query into the instruction prompt
+        # 2. PROMPT: Formats the context and query into the instruction prompt
         | rag_prompt
         # 3. GENERATION: Pass the final prompt to the Gemini LLM
         | llm
-        # 4. PARSING: Extract the string response
+        # 4. PARSING: Extracts the string response
         | StrOutputParser()
     )
 
