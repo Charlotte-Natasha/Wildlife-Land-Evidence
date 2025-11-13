@@ -1,14 +1,41 @@
+<<<<<<< HEAD
 # Akoth: Maasai Mara Wildlife Expert 
 
 Welcome to **Akoth**, an interactive Q&A app powered by Streamlit, LangChain, Google Gemini AI models, and ChromaDB vector search. Akoth provides engaging, conversational insights about Kenyan wildlife, Maasai Mara ecosystems, and conservation efforts using a retrieval-augmented generation (RAG) method.
+=======
+# 🦁 Akoth: : Maasai Mara Wildlife Expert 
 
-## Features
+Meet **Akoth** — your friendly AI wildlife expert for the Maasai Mara and Kenyan wildlife! Powered by Streamlit, LangChain, Google Gemini AI models, and ChromaDB vector search. Akoth provides engaging, conversational insights about Kenyan wildlife, Maasai Mara ecosystems, and conservation efforts using a retrieval-augmented generation (RAG) method..
+>>>>>>> 6e78ade (updated README)
 
-- Natural language querying of a curated wildlife knowledge base
-- Advanced LLM (Gemini) from Google GenAI used via LangChain SDK
-- Contextual retrieval from ChromaDB vector store of wildlife documents
-- User-friendly Streamlit interface with clickable example questions
-- Easy setup with environment variable API keys and reusable Python modules
+## 🌟 Features
+
+- **Smart Document Retrieval**: Semantic search across Kenyan wildlife conservation PDFs and texts
+- **Embedding-Based Search**: HuggingFace Sentence Transformers for intelligent similarity matching
+- **Interactive Web Interface**: Clean, intuitive Streamlit UI with warm brown & green theme
+- **RAG Pipeline**: Combines document retrieval with LLM responses for accurate answers
+- **Expert Knowledge**: Powered by Akoth's deep understanding of Maasai Mara and Kenyan wildlife
+- **Modular Architecture**: Separate indexing and querying scripts for flexibility
+
+## 💡 How It Works
+
+1. **Indexing Phase** (`index.py`):
+   - Reads documents from `docs/` folder
+   - Creates embeddings using HuggingFace Sentence Transformers
+   - Stores vectors in Chroma vector database
+
+2. **Query Phase** (`app.py`):
+   - User enters a natural language question
+   - System retrieves relevant documents using semantic similarity
+   - Google Generative AI (Gemini) generates expert response based on context
+   - Response displayed in styled response card
+
+3. **Retrieval-Augmented Generation (RAG)**:
+   - Documents are split into chunks
+   - Chunks are embedded and stored in vector DB
+   - On query, relevant chunks are retrieved
+   - Retrieved context is passed to LLM for answer generation
+
 
 ## Installation and Setup
 
